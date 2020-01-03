@@ -1,0 +1,10 @@
+name: idm
+channels:
+  - defaults
+dependencies:
+  - gdal=2.3.3
+  - geopandas=0.4.1
+  - numpy=1.16.4
+  - python=3.6.8
+  - libtiff=4.0.10
+
