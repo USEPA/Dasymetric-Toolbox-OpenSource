@@ -118,7 +118,7 @@ Durham, NC 27709
 ## Credits
 The Intelligent Dasymetric Toolbox for ArcGIS Pro was developed for [EnviroAtlas](https://www.epa.gov/enviroatlas). EnviroAtlas is a collaborative effort led by U.S. EPA that provides geospatial data, easy-to-use tools, and other resources related to ecosystem services, their stressors, and human health. 
 
-The dasymetric  toolbox was updated for ArcGIS Pro in January 2020 by **Anam Khan**<sup>1</sup> and **Jeremy Baynes**<sup>2</sup>. This release also introduced optional functionality to mask known uninhabited areas.
+The dasymetric  toolbox using open source GIS was developed in January 2020 by **Anam Khan**<sup>1</sup> and **Jeremy Baynes**<sup>2</sup>. This release also introduced optional functionality to mask known uninhabited areas.
 
 The toolbox was originally developed for ArcMap 10 by **Torrin Hultgren**<sup>3</sup> 
 
