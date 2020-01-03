@@ -124,9 +124,9 @@ The toolbox was originally developed for ArcMap 10 by **Torrin Hultgren**<sup>3<
 
 The dasymetric toolbox follows the the methods by **Mennis and Hultgren (2006)**<sup>4</sup>. 
 
-<sub><sup>1</sup> Oak Ridge Associated Universities, National Student Services Contractor at the U.S. EPA</sub>
-<sub><sup>2</sup> U.S. EPA</sub>
-<sub><sup>3</sup> National Geospatial Support Team at U.S. EPA</sub>
+<sub><sup>1</sup> Oak Ridge Associated Universities, National Student Services Contractor at the U.S. EPA</sub>  
+<sub><sup>2</sup> U.S. EPA</sub>  
+<sub><sup>3</sup> National Geospatial Support Team at U.S. EPA</sub>  
 <sub><sup>4</sup> Mennis, Jeremy & Hultgren, Torrin. (2006).  Intelligent Dasymetric Mapping and Its Application to Areal Interpolation. Cartography and Geographic Information Science. 33. 179-194.</sub>
 
 
