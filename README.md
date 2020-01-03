@@ -15,6 +15,7 @@ The Intelligent Dasymetric Mapping (IDM) Toolbox is available to download. This 
 </figure>
 <br>
 
+
 -   EnviroAtlas researchers use the dasymetric data to calculate the distribution of ecosystem services, and other metrics including walking distances, viewsheds, resource use, and exposure potential.
 -   For more information on the Dasymetric data created for EnviroAtlas, see our [website](https://www.epa.gov/enviroatlas/dasymetric-toolbox) or  [Dasymetric Allocation of Population Fact Sheet](https://enviroatlas.epa.gov/enviroatlas/DataFactSheets/pdf/Supplemental/DasymetricAllocationofPopulation.pdf).
 
@@ -89,27 +90,27 @@ The user can set a population density for any ancillary class using their own do
 
 The preset densities for the following land cover classes from the 2011 National Land Cover Database (NLCD) are set to 0 people per pixel:
 
-•	11, Open Water
-•	12, Perennial Ice/Snow
-•	95, Emergent Herbaceous Wetlands
+* 11, Open Water
+* 12, Perennial Ice/Snow
+* 95, Emergent Herbaceous Wetlands
 
 
 ### Examples
 [Example data](data) are provided.
-```
+```bash
 mkdir -p output
 python idm.py ./data/2010_blocks_DE.shp POP10 polyID ./data/nlcd_2011_DE.tif ./output
 ```
 Running the script with uninhabited polygons
-```
+```bash
 mkdir -p output
 python idm.py --uninhabited_file uninhab_DE.shp ./data/2010_blocks_DE.shp POP10 polyID ./data/nlcd_2011_DE.tif ./output
 ```
 ## Contact
 
-U.S. Environmental Protection Agency
-Office of Research and Development
-Durham, NC 27709
+U.S. Environmental Protection Agency  
+Office of Research and Development  
+Durham, NC 27709  
 [https://www.epa.gov/enviroatlas/forms/contact-us-about-enviroatlas](https://www.epa.gov/enviroatlas/forms/contact-us-about-enviroatlas)
 
 
@@ -123,12 +124,10 @@ The toolbox was originally developed for ArcMap 10 by **Torrin Hultgren**<sup>3<
 
 The dasymetric toolbox follows the the methods by **Mennis and Hultgren (2006)**<sup>4</sup>. 
 
-<small><sup>1</sup> Oak Ridge Associated Universities, National Student Services Contractor at the U.S. EPA</small>
-<small><sup>2</sup> U.S. EPA</small>
-<small><sup>3</sup> National Geospatial Support Team at U.S. EPA</small>
-<small><sup>4</sup> Mennis, Jeremy & Hultgren, Torrin. (2006).  Intelligent Dasymetric Mapping and Its Application to Areal Interpolation. Cartography and Geographic Information Science. 33. 179-194.</small>
-
-
+<sub><sup>1</sup> Oak Ridge Associated Universities, National Student Services Contractor at the U.S. EPA</sub>
+<sub><sup>2</sup> U.S. EPA</sub>
+<sub><sup>3</sup> National Geospatial Support Team at U.S. EPA</sub>
+<sub><sup>4</sup> Mennis, Jeremy & Hultgren, Torrin. (2006).  Intelligent Dasymetric Mapping and Its Application to Areal Interpolation. Cartography and Geographic Information Science. 33. 179-194.</sub>
 
 
 ## License
