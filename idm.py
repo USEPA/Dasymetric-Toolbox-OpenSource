@@ -99,7 +99,8 @@ def dasy_map (popFeat_path, popCountField, popKeyField, ancRaster_path,
     for the population raster. 
     """
     print ("Creating population raster...")
-    popRast = rast_driver.Create(popRaster, cols, rows, 1, gdal.GDT_Float32)
+    popRast = rast_driver.Create(popRaster, cols, rows, 1, 
+                                gdal.GDT_Float32, options=["COMPRESS=LZW"])
     popRast.SetGeoTransform((ulx, ancRaster.GetGeoTransform()[1], 0, 
                              uly, 0, ancRaster.GetGeoTransform()[5]))
     popRast.SetProjection(anc_proj)
@@ -117,7 +118,8 @@ def dasy_map (popFeat_path, popCountField, popKeyField, ancRaster_path,
         uninhabLayer = uninhab_ds.GetLayer()
         uninhab_anc = os.path.join(out_dir, "uninhab_landcover.tif")
         uninhab_rast = rast_driver.CreateCopy(uninhab_anc, 
-                                              gdal.Open(ancRaster_path))
+                                              gdal.Open(ancRaster_path), 
+                                              options=['COMPRESS=LZW'])
         gdal.RasterizeLayer(uninhab_rast, [1], uninhabLayer, 
                             burn_values = [anc_nd])
         uninhab_rast = None
@@ -146,7 +148,8 @@ def dasy_map (popFeat_path, popCountField, popKeyField, ancRaster_path,
     Write the combine array to the dasymetric raster using the GeoTransform 
     from the ancillary raster
     """
-    dasyRast = rast_driver.Create(dasyRaster, cols, rows, 1, gdal.GDT_Float64)
+    dasyRast = rast_driver.Create(dasyRaster, cols, rows, 1, 
+                            gdal.GDT_Float64, options=['COMPRESS=LZW'])
     dasyRast.SetGeoTransform((ulx, ancRaster.GetGeoTransform()[1], 0, 
                               uly, 0, ancRaster.GetGeoTransform()[5]))
     dasyRast.SetProjection(anc_proj)
@@ -532,7 +535,7 @@ def dasy_map (popFeat_path, popCountField, popKeyField, ancRaster_path,
     
     #Write array to population density raster.
     densRast = rast_driver.Create(densityRaster, cols, rows, 1, 
-                                  gdal.GDT_Float32)
+                                  gdal.GDT_Float32, options=['COMPRESS=LZW'])
     densRast.SetGeoTransform((ulx, ancRaster.GetGeoTransform()[1], 0, 
                               uly, 0, ancRaster.GetGeoTransform()[5]))
     densRast.SetProjection(anc_proj)
