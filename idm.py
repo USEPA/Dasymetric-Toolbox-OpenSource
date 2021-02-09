@@ -435,19 +435,14 @@ def dasy_map (popFeat_path, popCountField, popKeyField, ancRaster_path,
         Calculate an initial population estimate for dasymetric units 
         associated with unsampled ancillary classes and polygons where the 
         sampled/preset population estimates did not exceed the census 
-        population count.
+        population count. 
         '''
-        diff_mask = (
-                dasy_df[ancCatName].isin(unSampledList)
-                ) & (
-                        dasy_df["POP_DIFF"] > 0
-                        ) & (
-                                dasy_df['REM_AREApoly'] != 0
-                                )
-        dasy_df.loc[diff_mask, "POP_EST"] = dasy_df.loc[diff_mask, 
-                   "POP_DIFF"] * dasy_df.loc[diff_mask, 
-                               "REM_AREA"] / dasy_df.loc[diff_mask, 
-                                           "REM_AREApoly"]
+        diff_mask = (dasy_df[ancCatName].isin(unSampledList) &
+                     dasy_df['REM_AREApoly'] !=0 )
+        dasy_df.loc[diff_mask, "POP_EST"] = (
+                dasy_df.loc[diff_mask, "POP_DIFF"].clip(0) * 
+                dasy_df.loc[diff_mask, "REM_AREA"] / 
+                dasy_df.loc[diff_mask, "REM_AREApoly"])
         '''
         Sum total initial population estimates and remaining area for 
         dasymetric units used to calculate initial population estimates for 
@@ -499,10 +494,25 @@ def dasy_map (popFeat_path, popCountField, popKeyField, ancRaster_path,
     total population estimated for the polygon associated with the dasymetric 
     unit to redistribute the census population.
     '''
+
+    '''
+    if the sum of population densities within the source unit is equal to 0
+    set the POP_EST for those to 1 (i.e., area weighting (equation 5))
+    '''
+
+    idx = (dasy_df
+            .groupby(popIDField)
+            .filter(
+                lambda s: s['POP_EST'].sum() == 0 and
+                          s['POP_COUNT'].sum() > 0
+                    ).index
+            )
+
+    dasy_df.loc[idx, 'POP_EST'] = 1
     
     #Sum population estimates by polygon.
     popEstsum = dasy_df.groupby(popIDField)["POP_EST"].sum()
-                           
+    
     dasy_df["TOTALFRACT"] = dasy_df["POP_EST"] / dasy_df.join(popEstsum, 
            on = popIDField, rsuffix = "SUM")["POP_ESTSUM"]
     dasy_df["NEW_POP"] = dasy_df["TOTALFRACT"] * dasy_df["POP_COUNT"]
