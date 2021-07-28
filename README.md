@@ -3,6 +3,9 @@
 
 [<img src="https://enviroatlas.epa.gov/enviroatlas/interactivemap/images/logo.png"     title="EnviroAtlas" width=400 >](https://www.epa.gov/enviroatlas)
 
+## Beta
+The EnviroAtlas Intelligent Dasymetric Toolbox for Open Source GIS is currently in development. The most recent release for ESRI ArcMap 10.3 is available at [https://www.epa.gov/enviroatlas/dasymetric-toolbox](https://www.epa.gov/enviroatlas/dasymetric-toolbox).
+
 ## Overview
 Dasymetric mapping is a geospatial technique that uses information such as land cover types to more accurately distribute data within selected boundaries like census blocks.
 
@@ -10,8 +13,8 @@ The Intelligent Dasymetric Mapping (IDM) Toolbox is available to download. This 
 
 
 <figure>
-  <img src="https://www.epa.gov/sites/production/files/styles/large/public/2015-07/dasymetric_728x210.jpg" alt="my alt text"/>
-  <figcaption><sup>The image on the left shows a map of the population by block group based solely on the census data. The image on the right shows the dasymetric population allocation for several block groups in Tampa, Fla.</sup></figcaption>
+  <img src="https://www.epa.gov/sites/default/files/2015-07/dasymetric_728x210.jpg" alt="Dasymetric example image"/>
+  <figcaption><sup>The image on the left shows a map of the population by block group based solely on the census data. The image on the right shows the dasymetric population allocation for several block groups in Tampa, Fla.</sup></figcaption>  
 </figure>
 <br>
 
